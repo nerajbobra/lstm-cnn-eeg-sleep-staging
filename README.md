@@ -14,6 +14,7 @@ The remainder of this readme will cover the different steps in the analysis pipe
 
 ## 1. Download/Parse the Data
 The RECORDS.txt file contains a list of every file in the database, all of which belong to the same root URL. After downloading each file, the pyedflib library is used to parse the EDF files in the database. As an example, this is the data from file ST7152JA:
+![datapreview](https://github.com/nerajbobra/lstm-cnn-eeg-sleep-staging/blob/main/plots/parsed_data.png "Data Preview")
 
 ## 2. Generate Spectrograms
 Each file is now segmented into five thirty-second consecutive blocks, and then spectrograms of each 30 second block are computed. An example spectrogram output from file SC4121EC:
