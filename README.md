@@ -10,6 +10,11 @@ https://archive.physionet.org/physiobank/database/sleep-edfx/
 The following diagram is a high level description of the model architecture:
 ![modelarchitecture](https://github.com/nerajbobra/lstm-cnn-eeg-sleep-staging/blob/main/plots/block_diagram.jpg "Model Architecture")
 
+To run the code in this project, run the following notebooks:
+1. ```load_parse_data.ipynb```: This notebook pulls and parses data from the Physionet EDF database, which is the data source for this project
+2. ```gen_spectrogram.ipynb```: This notebook calculates spectrograms of the time series EEG data
+3. ```train_model.ipynb```: This notebook trains the model and evaluates it on the test set 
+
 The remainder of this readme will cover the different steps in the analysis pipeline.
 
 ## 1. Download/Parse the Data
