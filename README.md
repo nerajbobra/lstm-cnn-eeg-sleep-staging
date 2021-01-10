@@ -7,7 +7,7 @@ This project uses a hybrid LSTM-CNN architecture to classify sleep stages based 
 The data used for this project is from the Sleep-EDF Database:
 https://archive.physionet.org/physiobank/database/sleep-edfx/
 
-The following diagram is a high level description of the model architecture:
+The following diagram is a high level description of the model architecture. Note that ch1/ch2 refers to channel 1 or channel 2, and b1/b2/b3/b4/b5 refers to block 1, block 2, block 3, etc.
 ![modelarchitecture](https://github.com/nerajbobra/lstm-cnn-eeg-sleep-staging/blob/main/plots/block_diagram.jpg "Model Architecture")
 
 To run the code in this project, run the following notebooks:
