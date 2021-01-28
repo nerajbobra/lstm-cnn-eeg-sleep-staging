@@ -22,14 +22,15 @@ The RECORDS.txt file contains a list of every file in the database, all of which
 ![datapreview](https://github.com/nerajbobra/lstm-cnn-eeg-sleep-staging/blob/main/plots/parsed_data.png "Data Preview")
 
 ## 2. Generate Spectrograms
-Each file is now segmented into five thirty-second consecutive blocks, and then spectrograms of each 30 second block are computed. An example spectrogram output from file SC4121EC:
+Each file is now segmented into five thirty-second consecutive blocks, and then Mel Spectrograms of each 30 second block are computed. An example spectrogram output from file SC4121EC:
 ![spectrogram](https://github.com/nerajbobra/lstm-cnn-eeg-sleep-staging/blob/main/plots/spectrogram.png "Spectrogram")
-Note that the high frequency resolution of the spectrogram leads to a tradeoff of lower time resolution
+Note that this is not an audio application, and therefore the use of a Mel Spectrogram is not particularly justified, however the model seems to be training better on Mel Spectrograms as opposed to standard power spectral density.
 
 ## 3. Train the Model
 For training, a validation split of 10% was used and an early stopping criterion was implemented based on the validation loss. The loss and categorical accuracy over the training session:
 ![loss](https://github.com/nerajbobra/lstm-cnn-eeg-sleep-staging/blob/main/plots/loss.png "Loss")
 ![accuracy](https://github.com/nerajbobra/lstm-cnn-eeg-sleep-staging/blob/main/plots/accuracy.png "Categorical Accuracy")
+Note that the validation loss did not decrease after epoch 8, and therefore the final saved model is based on the results of epoch 8
 
 ## 4. Evaluate the Model
 20% of the data was used for the test set. 
@@ -37,19 +38,19 @@ For training, a validation split of 10% was used and an early stopping criterion
 The confusion matrix:
 |      | Wake  | NREM  | REM  |
 |:----:|-------|-------|------|
-| Wake | 57820 | 769   | 318  |
-| NREM | 1481  | 23989 | 1880 |
-| REM  | 281   | 1443  | 4834 |
+| Wake | 29290 | 508   | 77   |
+| NREM | 351   | 11836 | 722  |
+| REM  | 76    | 703   | 2572 |
 
 A per-class f1 score:
 |   Class              |  f1 Score  |
-|-------------------------|--------------------|
-|   Wake                   |   0.976                |
-|   NREM                |   0.896                |
-|   REM                |   0.711                |
+|----------------------|------------|
+|   Wake               |   0.983    |
+|   NREM               |   0.912    |
+|   REM                |   0.765    |
 
 For file ST7152JA, the computed output hypnogram vs the annotated labels (note that the time here is relative, not absolute):
-![hypnogram](https://github.com/nerajbobra/lstm-cnn-eeg-sleep-staging/blob/main/plots/SC4121EC_hypnogram.png "Hypnogram")
+![hypnogram](https://github.com/nerajbobra/lstm-cnn-eeg-sleep-staging/blob/main/plots/ST7152JA_hypnogram.png "Hypnogram")
 
 ## References
 https://pubmed.ncbi.nlm.nih.gov/30445569/
