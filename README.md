@@ -24,6 +24,7 @@ The RECORDS.txt file contains a list of every file in the database, all of which
 ## 2. Generate Spectrograms
 Each file is now segmented into five thirty-second consecutive blocks, and then spectrograms of each 30 second block are computed. An example spectrogram output from file SC4121EC:
 ![spectrogram](https://github.com/nerajbobra/lstm-cnn-eeg-sleep-staging/blob/main/plots/spectrogram.png "Spectrogram")
+Note that the high frequency resolution of the spectrogram leads to a tradeoff of lower time resolution
 
 ## 3. Train the Model
 For training, a validation split of 10% was used and an early stopping criterion was implemented based on the validation loss. The loss and categorical accuracy over the training session:
